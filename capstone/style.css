@@ -1,5 +1,88 @@
-/* 
-    Create all the style definitions necessary to make your app look as close 
-    to the example as possible. You will need to use display:grid to make the 
-    bug reports display in three columns (see week 4).
-*/
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("./images/wallpaper.jpg");
+}
+
+.reportWrapper {
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-top: 25px;
+    height: 170px;
+    width: 300px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#topbar {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+img {
+    padding: 5px;
+}
+
+#reportedBy {
+    border-radius: 5px;
+    margin-top: 2.5px;
+}
+
+#system {
+    border-radius: 5px;
+    margin-top: 2.5px;
+}
+
+#subSystem {
+    border-radius: 5px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+#resetBtn {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    margin: 2px;
+}
+
+#submitBtn {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    margin: 2px;
+}
+
+.listWrapper {
+    border: 1px solid white;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+    margin: 50px;
+    color: white;
+}
+
+.listWrapper p {
+    padding: 10px;
+}
+
+.listWrapper .bugRpt {
+    background-color: #909090;
+    border-radius: 5px;
+}
+
+.listWrapper button {
+    background-color: red;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    color: white;
+}

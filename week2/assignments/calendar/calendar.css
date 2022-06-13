@@ -1,31 +1,77 @@
+body {
+    background-color: whitesmoke;
+}
+
 .calendarWrapper {
-  border: silver 2px solid;
-  width: 525px;
-  margin: 0 auto;
+    border: silver 2px solid;
+    width: 525px;
+    margin: 0 auto;
 }
 
 .calendarTitle {
-  text-align: center;
-  padding: 5px;
-  font-weight: 700;
-  grid-column: span 7;
-  border: silver 1px solid;
+    text-align: center;
+    padding: 5px;
+    font-weight: 700;
+    grid-column: span 7;
+    border: silver 1px solid;
 }
 
 .calendar {
-  display: grid;
-  grid-template-columns: 75px 75px 75px 75px 75px 75px 75px;
+    display: grid;
+    grid-template-columns: 75px 75px 75px 75px 75px 75px 75px;
 }
 
 .calendarCell {
-  border: silver 1px solid;
-  text-align: center;
-  padding: 3px;
+    border: silver 1px solid;
+    text-align: center;
+    padding: 3px;
+}
+
+.calendarCell:hover {
+    background-color: silver;
+    border: 1px solid black;
 }
 
 .blankDay {
-  border: silver 1px solid;
-  text-align: center;
-  padding: 3px;
-  background-color: silver;
+    border: silver 1px solid;
+    text-align: center;
+    padding: 3px;
+    background-color: rgb(221, 219, 219);
+}
+
+#month {
+    border: 1px solid silver;
+}
+
+#month:hover {
+    border: 1px solid black;
+    background-color: #0005;
+}
+
+.paragraph {
+    text-align: center;
+    font-size: 2px;
+}
+
+.new {
+    text-align: center;
+}
+
+input {
+    border: 1px solid silver;
+}
+
+input:hover {
+    border: 1px solid black;
+    background-color: #0005;
+}
+
+button {
+    border: 1px solid silver;
+    border-radius: 5px;
+    background-color: rgba(0, 128, 0, 0.397);
+}
+button:hover {
+    border: 1px solid black;
+    background-color: rgba(3, 218, 3, 0.61);
 }

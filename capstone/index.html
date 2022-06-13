@@ -1,17 +1,18 @@
-<!-- 
-    All of your changes for this project will be in other documents, but don't forget to 
-    link / include / import those documents into this document in the right places 
--->
 
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type="text/css" href='style.css'>
+
         <title>My Own Bug Tracker</title>
     </head>
+    
     <body>
         <div id='reportWrapper' class='reportWrapper'>
             <div id='topbar' class='topbar'><img src='./images/bug.png' alt='bug icon' style='height:20px; width:20px;' /> Report a New Bug</div>
-                <form id='bugForm' action='#' onsubmit='reportBug(); return false'>
+                <form id='bugForm' action='#' onsubmit='reportBug;'>
                     <div id='reporterByDiv' class='userInput'>
                         <input placeholder='Reported By' type='text' id='reportedBy' style='width:97%' />
                     </div>
@@ -33,6 +34,8 @@
             <br />
             <div id='listWrapper' class='listWrapper'></div>
         </div>
+        <p>Copyright&copy;2022 &nbsp; By: Jordan .F</p>
     </body>
-
+    <script src='./scripts/bug.js'></script>
+    <script src='./scripts/data.js'></script>
 </html>

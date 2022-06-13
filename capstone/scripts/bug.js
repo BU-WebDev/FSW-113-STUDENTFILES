@@ -1,28 +1,70 @@
-// Create a variable of the right kind and in the right place such that each new bug that is added can increment that number
+let bugTracker = 0;
 
 class Bug {
     constructor() {
-        // This constructor should be set up to accept the four user-input values from index.html: 
-        // reportedBy, system, subSystem, and bugDesc
-    }
+        this.reportedBy = arguments[0],
+        this.system = arguments[1],
+        this.subSystem = arguments[2],
+        this.bugDesc = arguments[3]
+    };
 
     addBug() {
-        // Create a div element that displays the bug information input by the user within the "listWrapper" DOM element. 
-        // It should also contain buttons whose onClick events will call the deleteBug() and resolveBug() methods (see below). 
+        bugTracker ++;
 
-    }
+        let newBug = '<div id="bug' + bugTracker + '" class="bugRpt"><p>';
+            newBug += 'Reported by: ' + this.reportedBy + '/' + this.subSystem + '<br/>';
+            newBug += 'System: ' + this.system + '/' + this.subSystem + '<br />';
+            newBug += this.bugDesc + '</p>';
+            newBug += `<div id='bugButtons${bugTracker}' class='bugButtons'`;
+            newBug += '</div>';
+        newBug += '</div>';
 
-    deleteBug() {
-        // Create code that will remove the appropriate bug from the DOM. 
-        // You may need to Google how to remove an element from the DOM.
-    }
+        document.querySelector('#listWrapper').innerHTML += newBug;
 
-    resolveBug() {
-        // Create code that changes the appropriate bug report to a darker color
-    }
-}
+        let bugButtonsDiv = document.getElementById('bugButtons' + bugTracker);
+
+        let deleteButton = document.createElement('button');
+        deleteButton.innerHTML = 'X';
+        deleteButton.id = 'deleteMe-' + bugTracker;
+        deleteButton.addEventListener('click', this.deleteBug);
+        bugButtonsDiv.appendChild(deleteButton);
+
+        let resolveButton = document.createElement('button');
+        resolveButton.innerHTML = '&#x2713;';
+        resolveButton.id = 'resolveMe-' + bugTracker;
+        resolveButton.addEventListener('click', this.resolveBug);
+        bugButtonsDiv.appendChild(resolveButton);
+        console.dir(deleteButton);
+    };
+
+    deleteBug(event) {
+        let getId = event.target.id;
+        let id = parseInt(getId.substring(9));
+        console.log(id)
+        let element = document.getElementById('bug'+id);
+        element.remove();
+    };
+
+
+    resolveBug(event) {
+        let getId = event.target.id;
+        let id = parseInt(getId.substring(10));
+        console.log(id)
+        let element = document.getElementById('bug' + id);
+        element.style.backgroundColor = '#111111';
+        element.style.color = 'silver';
+    };
+};
 
 function reportBug() {
-    // Create code that instantiates the Bug class with the data input by the 
-    // user in the index.html form. Then call the method to add the new bug report.
-}
+    console.log('asdf')
+    let objBug = new Bug (
+        document.querySelector('#reportedBy').value,
+        document.querySelector('#system').selectedOptions[0].text,
+        document.querySelector('#subSystem').selectedOptions[0].text,
+        document.querySelector('#bugDesc').value,
+    )
+    objBug.addBug();
+};
+
+document.getElementById('bugForm').addEventListener('submit', reportBug);
